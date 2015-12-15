@@ -1,0 +1,18 @@
+body {
+    background-color:rgba(255, 198, 198, 0.14);
+    margin-top:30px;
+    margin-bottom:30px;
+}
+table {
+    background-color:white;
+}
+h3 {
+    margin-top:10px;
+    text-align:center;
+}
+.btn-group, button {
+    width:100%;
+}
+th,td {
+    text-align:center;
+}

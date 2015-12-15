@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Places to Get Ahead</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='places.css')}}">
+    <link rel="shortcut icon" href="{{url_for('static',filename='images/favicon.ico')}}">
+    <script src="{{url_for('static',filename='angular.min.js')}}"></script>
+</head>
+<body ng-app="getAhead" ng-controller="MainController" ng-cloak>
+	<div class="container">
+		<h1>Top 20 Places to Get Ahead <small>... After a Few Questions</small></h1>
+		<hr>
+		<br>
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Your Family?</h3>
+			</div>
+			<div class="col-md-8">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						{{f.name|angular}} <span class="caret"></span>
+  					</button>
+  					<ul class="dropdown-menu">
+  						<li ng-repeat="family in families"><a href="#" ng-click="$parent.f.name=family; $parent.f.col=mapInd($index); postReady()">{{family|angular}}</a></li>
+  					</ul>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Your Job?</h3>
+			</div>
+			<div class="col-md-8">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						{{o1.name|angular}} <span class="caret"></span>
+  					</button>
+  					<ul class="dropdown-menu">
+  						<li ng-repeat="occupation in occupations"><a href="#" ng-click="$parent.o1.name=occupation; $parent.o1.col=mapInd($index); postReady()">{{occupation|angular}}</a></li>
+  					</ul>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-4">
+				<h3>Your Spouse?</h3>
+			</div>
+			<div class="col-md-8">
+				<div class="btn-group">
+					<button type="button" class="btn btn-default btn-lg dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ng-disabled="oneAdult()">
+						{{o2.name|angular}} <span class="caret"></span>
+  					</button>
+  					<ul class="dropdown-menu">
+  						<li ng-repeat="occupation in occupations"><a href="#" ng-click="$parent.o2.name=occupation; $parent.o2.col=mapInd($index); postReady()">{{occupation|angular}}</a></li>
+  					</ul>
+				</div>
+			</div>
+		</div>
+		<br>
+		<br>
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-bordered">
+				<thead>
+					<tr>
+						<th class="col-md-5">COUNTY | CITY</th>
+                		<th class="col-md-4">STATE</th>
+                		<th class="col-md-3">EXTRA YEARLY $</th>
+              		</tr>
+            	</thead>
+            	<tbody>
+            		<tr ng-repeat="place in places">
+            			<td class="col-md-5">{{place.site|angular}}</td>
+                		<td class="col-md-4">{{place.state|angular}}</td>
+                		<td class="col-md-3">{{place.dollars|angular}}</td>
+              		</tr>
+            	</tbody>
+        	</table>
+			</div>
+		</div>
+	</div>
+	<script src="{{url_for('static',filename='places.js')}}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+</body>
+</html>
