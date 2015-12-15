@@ -3,6 +3,7 @@ import json
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from living_wage_database_setup import Base, Location, Wages, Salaries
+import os
 
 engine = create_engine(os.environ.get('DATABASE_URL'))
 Base.metadata.bind = engine
