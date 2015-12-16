@@ -37,7 +37,7 @@ class Wages(Base):
 
 class Salaries(Base):
     def __init__(self, cells, loc_id):
-        for i, v in enumerate('abcdefghijklmopqrstuv'):
+        for i, v in enumerate('abcdefghijklmnopqrstuv'):
             setattr(self, v, cells[i])
         self.loc_id = loc_id
     __tablename__ = 'salaries'
